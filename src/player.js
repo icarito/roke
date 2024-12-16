@@ -5,7 +5,7 @@ import { resources } from "./resources";
 import { isSafari } from "./permission";
 
 const [idleMan0, idleMan1, idleMan2, idleMan3, walkMan0, walkMan1, walkMan2,
-       walkMan3, walkMan4, walkMan5, walkMan6, walkMan7] = resources;
+  walkMan3, walkMan4, walkMan5, walkMan6, walkMan7, runMan0, runMan1, runMan2, runMan3, runMan4, runMan5, runMan6, runMan7] = resources;
 
 const click = 100;
 const idleMan = new ex.Animation({
@@ -18,6 +18,12 @@ const idleMan = new ex.Animation({
 });
 const walkMan = new ex.Animation({
   frames: [walkMan0, walkMan1, walkMan2, walkMan3, walkMan4, walkMan5, walkMan6, walkMan7].map(res=>({
+    graphic: res.toSprite(),
+    duration: click,
+  })),
+});
+const runMan = new ex.Animation({
+  frames: [runMan0, runMan1, runMan2, runMan3, runMan4, runMan5, runMan6, runMan7].map(res=>({
     graphic: res.toSprite(),
     duration: click,
   })),
@@ -69,7 +75,10 @@ export class Player extends Actor {
     ) {
       this.vel.addEqual(ex.vec(10, 0));
     }
-    if (Math.abs(this.vel.x) > 0.1) {
+    if (Math.abs(this.vel.x) > 90) {
+      this.graphics.use(runMan);
+    }
+    else if (Math.abs(this.vel.x) > 1) {
       this.graphics.use(walkMan);
     }
     else {
