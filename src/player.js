@@ -39,7 +39,7 @@ const flyMan = new ex.Animation({
 export class Player extends Actor {
   constructor() {
     super({
-      pos: vec(200, 300),
+      pos: vec(100, 80),
       width: 32,
       height: 64,
       anchor: vec(0.5, 0.8),
