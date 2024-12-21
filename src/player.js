@@ -40,10 +40,9 @@ export class Player extends Actor {
   constructor() {
     super({
       pos: vec(100, 80),
-      width: 32,
-      height: 64,
+      width: 16,
+      height: 32,
       anchor: vec(0.5, 0.8),
-      color: Color.Yellow,
       collisionType: ex.CollisionType.Active,
     });
     Motion.addListener("accel", (event) => {
