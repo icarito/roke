@@ -24,10 +24,10 @@ import runMan7 from "./assets/S/obj_Run007.png";
 import flyMan0 from "./assets/S/obj_Flying000.png";
 import flyMan1 from "./assets/S/obj_Flying001.png";
 import caverna from "./assets/maps/Cavernas_by_Adam_Saltsman.png";
-import hero from "./assets/maps/Hero 01.png";
 import tilemap from "./assets/maps/Solaria Demo Update 01.png";
 import dsml1_level from "./assets/maps/dsml1/Cave.ldtkl?url";
 import dsml1_map from "./assets/maps/dsml1.ldtk?url";
+import cityBackFull from "./assets/back/city/10.png";
 
 export const dsml1 = new LdtkResource(dsml1_map, {
   pathMap: [
@@ -60,6 +60,40 @@ export const resources = [
   flyMan0,
   flyMan1,
   caverna,
-  hero,
   tilemap,
+  cityBackFull,
 ].map((resource) => new ex.ImageSource(resource));
+
+function resourceByPath(path) {
+  return resources.find((res) => res.path === path);
+}
+
+const click = 100;
+export const idleMan = new ex.Animation({
+  frames: [idleMan0, idleMan1, idleMan2, idleMan3, idleMan2, idleMan1].map(
+    (res) => ({
+      graphic: resourceByPath(res).toSprite(),
+      duration: click,
+    })
+  ),
+});
+export const walkMan = new ex.Animation({
+  frames: [walkMan0, walkMan1, walkMan2, walkMan3, walkMan4, walkMan5, walkMan6, walkMan7].map(res=>({
+    graphic: resourceByPath(res).toSprite(),
+    duration: click,
+  })),
+});
+export const runMan = new ex.Animation({
+  frames: [runMan0, runMan1, runMan2, runMan3, runMan4, runMan5, runMan6, runMan7].map(res=>({
+    graphic: resourceByPath(res).toSprite(),
+    duration: click,
+  })),
+});
+export const flyMan = new ex.Animation({
+  frames: [flyMan0, flyMan1].map(res=>({
+   graphic: resourceByPath(res).toSprite(),
+   duration:click
+ })),
+});
+
+export const cityBack = resourceByPath(cityBackFull).toSprite();

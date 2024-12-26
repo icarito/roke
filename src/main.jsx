@@ -8,10 +8,12 @@ import { addPermission } from "./permission";
 ex.Flags.useCanvasGraphicsContext();
 
 const game = new ex.Engine({
+  displayMode: ex.DisplayMode.FillContainer,
   canvasElementId: "game",
+  backgroundColor: ex.Color.Black,
   physics: {
     solver: ex.SolverStrategy.Realistic,
-  }
+  },
 });
 const loader = new ex.Loader([dsml1, ...resources]);
 
@@ -20,23 +22,14 @@ document.body.addEventListener("click", function handler(event) {
   addPermission();
 });
 
-game.currentScene.onInitialize = (e) => {
-  console.log(e);
-  dsml1.addToScene(e.currentScene, {
-    pos: ex.vec(0, 0),
-  });
-};
 
 game.start(loader).then(() => {
-  game.currentScene.physics.config.gravity = ex.vec(0, 100);
+  game.currentScene.physics.config.gravity = ex.vec(0, 200);
   let player = new Player();
+  game.add(new Capsule(0, 0, game.screen.width, game.screen.height));
   game.add(player);
-  window.ex = ex;
-  window.dsml1 = dsml1;
-  window.game = game;
-  window.resources = resources;
-  window.player = player;
-  //game.currentScene.camera.clearAllStrategies();
-  //game.currentScene.camera.strategy.lockToActor(player);
-  //game.add(new Capsule(0, 0, game.screen.width, game.screen.height));
+  game.currentScene.camera.strategy.elasticToActor(player, 0.3, 0.8);
+  let boundingBox = new ex.BoundingBox(0, 0, game.screen.width, game.screen.height);
+  game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
+  game.currentScene.camera.zoomOverTime(2, 2000);
 });

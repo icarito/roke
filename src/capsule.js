@@ -1,4 +1,6 @@
 import * as ex from "excalibur";
+import { City } from "./city";
+import { cityBack } from "./resources";
 
 function colliderBox(x, y, width, height) {
   return new ex.CompositeCollider([
@@ -14,7 +16,6 @@ export class Capsule extends ex.Actor {
     super({
       x: x,
       y: y,
-      color: ex.Color.Teal,
       width: width,
       height: height,
       collisionType: ex.CollisionType.Fixed,
@@ -23,12 +24,11 @@ export class Capsule extends ex.Actor {
     });
   }
   onInitialize() {
+    cityBack.width = this.width - 20;
+    cityBack.height = this.height - 20;
     this.graphics.use(
-      new ex.Rectangle({
-        width: this.width,
-        height: this.height,
-        color: ex.Color.Teal,
-      })
+      cityBack
     );
+    this.addChild(new City(0, this.height/2, this.width, this.height))
   }
 }
