@@ -27,11 +27,13 @@ import caverna from "./assets/maps/Cavernas_by_Adam_Saltsman.png";
 import tilemap from "./assets/maps/Solaria Demo Update 01.png";
 import dsml1_level from "./assets/maps/dsml1/Cave.ldtkl?url";
 import dsml1_map from "./assets/maps/dsml1.ldtk?url";
+import vsl0_level from "./assets/maps/vsm0/Level_0.ldtkl?url";
+import vsl0_map from "./assets/maps/vsm0.ldtk?url";
 import cityBackFull from "./assets/back/city/10.png";
 
-export const dsml1 = new LdtkResource(dsml1_map, {
+export const dsml1 = new LdtkResource(vsl0_map, {
   pathMap: [
-    {path: "dsml1/Cave.ldtkl", output: dsml1_level},
+    {path: "vsm0/Level_0.ldtk", output: vsl0_level},
     {path: "Cavernas_by_Adam_Saltsman.png", output: caverna},
   ]
 });
