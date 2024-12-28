@@ -702,10 +702,10 @@ estree-walker@^2.0.1:
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
 
-excalibur@^0.30.1:
-  version "0.30.2"
-  resolved "https://registry.yarnpkg.com/excalibur/-/excalibur-0.30.2.tgz#51bdb57621317409ab573c55cae0aa10c2ced793"
-  integrity sha512-wovkbyvsNWxJKg6wKMnuSK3Uj2J69HSaKBlKxkWOVfViVxa1kRsUuqYp7dBz38277BVfNoUmvewq2nDp1oKluA==
+excalibur@^0.31.0-alpha.1323:
+  version "0.31.0-alpha.1324"
+  resolved "https://registry.yarnpkg.com/excalibur/-/excalibur-0.31.0-alpha.1324.tgz#14e0486c71154528b595c71541c2fd277bc0f762"
+  integrity sha512-tH7uQ02Yv5Oq4nM4cO/l+wbJmqpiv5+jd+1DPi9KV+6vKGwhiaXFKfoH0/9HyEN8f9MSIMm4Y+DdWD9AXdNRLg==
 
 fast-glob@^3.2.9:
   version "3.3.2"
