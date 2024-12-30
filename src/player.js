@@ -9,9 +9,9 @@ export class Player extends Actor {
     super({
       name: "Roke",
       pos: vec(100, 80),
-      width: 32,
-      height: 48,
-      anchor: vec(0.5, 0.8),
+      width: 36,
+      height: 72,
+      anchor: vec(0.5, 0.95),
       collisionType: ex.CollisionType.Active,
     });
     Motion.addListener("accel", (e) => this.handleAccel(e));
@@ -44,7 +44,7 @@ export class Player extends Actor {
       this.graphics.use(flyMan);
     } else if (Math.abs(this.vel.x) > 120) {
       this.graphics.use(runMan);
-    } else if (Math.abs(this.vel.x) > 1) {
+    } else if (Math.abs(this.vel.x) > 2) {
       this.graphics.use(walkMan);
     } else {
       this.graphics.use(idleMan);

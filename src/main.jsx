@@ -1,6 +1,7 @@
 import * as ex from "excalibur";
 import { Player } from "./player";
 import { Capsule } from "./capsule";
+import { Coin } from "./money";
 import "./index.css";
 import { resources, dsml1 } from "./resources";
 import { addPermission } from "./permission";
@@ -29,11 +30,18 @@ game.start(loader).then(() => {
   game.add(new Capsule(0, 0, game.screen.width, game.screen.height));
   dsml1.addToScene(game.currentScene);
   game.add(player);
+  setInterval(() => {
+    let coin = new Coin(100, 100);
+    coin.vel = ex.vec(Math.random() * 100 - 50, Math.random() * -100 - 50);
+    game.add(coin)
+  }, 1000)
+  window.player = player
   game.currentScene.camera.strategy.elasticToActor(player, 0.3, 0.8);
   let boundingBox = new ex.BoundingBox(0, 0, game.screen.width, game.screen.height);
   game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
   game.currentScene.camera.zoomOverTime(2, 2000);
 });
+
 
 window.dsml1 = dsml1
 window.game = game
