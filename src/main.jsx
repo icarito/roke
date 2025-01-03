@@ -4,14 +4,17 @@ import { Capsule } from "./capsule";
 import { Coin } from "./money";
 import "./index.css";
 import { resources, dsml1 } from "./resources";
+import { LdtkDefFile } from "./ldtkimportjs/ldtkDefFile";
 import { addPermission } from "./permission";
 
-ex.Flags.useCanvasGraphicsContext();
+//ex.Flags.useCanvasGraphicsContext();
 
 const game = new ex.Engine({
-  displayMode: ex.DisplayMode.FillContainer,
+  resolution: { width: 800, height: 480 },
+  displayMode: ex.DisplayMode.FitContainer,
   canvasElementId: "game",
   backgroundColor: ex.Color.Black,
+  pixelArt: true,
   physics: {
     solver: ex.SolverStrategy.Realistic,
   },
@@ -26,20 +29,21 @@ document.body.addEventListener("click", function handler(event) {
 
 game.start(loader).then(() => {
   game.currentScene.physics.config.gravity = ex.vec(0, 200);
-  let player = new Player();
-  game.add(new Capsule(0, 0, game.screen.width, game.screen.height));
+  let player = new Player(50, 20);
+  game.add(new Capsule(0, 0, 400, 800));
   dsml1.addToScene(game.currentScene);
+  window.ldf = new LdtkDefFile(dsml1.levels.get(0).layers);
   game.add(player);
   setInterval(() => {
-    let coin = new Coin(100, 100);
+    let coin = new Coin(20, 20);
     coin.vel = ex.vec(Math.random() * 100 - 50, Math.random() * -100 - 50);
     game.add(coin)
-  }, 1000)
+  }, 500)
   window.player = player
   game.currentScene.camera.strategy.elasticToActor(player, 0.3, 0.8);
-  let boundingBox = new ex.BoundingBox(0, 0, game.screen.width, game.screen.height);
+  let boundingBox = new ex.BoundingBox(0, 0, 4000, 4000);
   game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
-  game.currentScene.camera.zoomOverTime(2, 2000);
+  game.currentScene.camera.zoomOverTime(3, 2000);
 });
 
 

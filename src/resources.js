@@ -1,5 +1,6 @@
 import * as ex from "excalibur";
-import { LdtkResource } from "@excaliburjs/plugin-ldtk";
+import { AutoMap } from "./automap";
+import { LdtkDefFile } from "./ldtkimportjs/ldtkDefFile";
 
 import idleMan0 from "./assets/L/obj_Idle000.png";
 import idleMan1 from "./assets/L/obj_Idle001.png";
@@ -33,7 +34,7 @@ import vsl0_level from "./assets/maps/vsm0/Level_0.ldtkl?url";
 import vsl0_map from "./assets/maps/vsm0.ldtk?url";
 import cityBackFull from "./assets/back/city/10.png";
 
-export const dsml1 = new LdtkResource(vsl0_map, {
+export const dsml1 = new AutoMap(vsl0_map, {
   pathMap: [
     { path: "vsm0/Level_0.ldtk", output: vsl0_level },
     { path: "Cavernas_by_Adam_Saltsman.png", output: caverna },

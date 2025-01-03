@@ -13,9 +13,10 @@
   "dependencies": {
     "@capacitor/core": "^6.2.0",
     "@capacitor/motion": "^6.0.1",
-    "@excaliburjs/plugin-ldtk": "^0.30.0",
-    "excalibur": "^0.31.0-alpha.1323",
-    "preact": "^10.25.2"
+    "@excaliburjs/plugin-ldtk": "^0.30.1",
+    "excalibur": "^0.30.3",
+    "preact": "^10.25.2",
+    "rot-js": "^2.2.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.1",

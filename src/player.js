@@ -5,18 +5,23 @@ import { idleMan, walkMan, runMan, flyMan } from "./resources";
 import { isSafari } from "./permission";
 
 export class Player extends Actor {
-  constructor() {
+  constructor(x, y) {
     super({
       name: "Roke",
-      pos: vec(100, 80),
+      pos: vec(x, y),
       width: 36,
       height: 72,
       anchor: vec(0.5, 0.95),
+      scale: vec(0.2, 0.2),
       collisionType: ex.CollisionType.Active,
     });
     Motion.addListener("accel", (e) => this.handleAccel(e));
   }
   update(engine, delta) {
+    if (engine.input.keyboard.wasPressed(ex.Keys.Enter)) {
+      window.dsml1.retile()
+    }
+    
     // *** Control
 
     if (

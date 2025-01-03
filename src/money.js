@@ -11,6 +11,7 @@ export class Coin extends ex.Actor {
       x: x,
       y: y,
       radius: 8,
+      scale: ex.vec(0.4, 0.4),
       anchor: ex.vec(0.5, 0.5),
       collisionType: ex.CollisionType.Active,
     });
@@ -18,6 +19,7 @@ export class Coin extends ex.Actor {
       setTimeout(()=>this.coinAnim.goToFrame(0))
     })
     this.body.mass = 0.1
+    this.body.friction = 0
     this.body.bounciness = 0
     this.graphics.use(this.coinAnim);
   }
