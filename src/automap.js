@@ -33,8 +33,7 @@ export class AutoMap extends LdtkResource {
 
     const ldtkLayer = this.getIntGridLayers()[0].ldtkLayer;
 
-    console.log(w, h, intGridCsv.length)
-    const origIntGridCsv = ldtkLayer.intGridCsv;
+    //const origIntGridCsv = ldtkLayer.intGridCsv;
 
     const autoLayerTiles = await calcAutoLayer(intGridCsv, tilemap.columns, tilemap.rows, tilemap.tileWidth, tileset.spritesheet);
     console.log(autoLayerTiles)
@@ -68,7 +67,6 @@ export class AutoMap extends LdtkResource {
           // Examples: f=0 (no flip), f=1 (X flip only), f=2 (Y flip only), f=3 (both flips)
           const flipHorizontal = !!(tile.f & 0b01);
           const flipVertical = !!(tile.f & 0b10);
-          console.log(tsxCoord, tsyCoord)
           let sprite = tileset.spritesheet.getSprite(tsxCoord, tsyCoord);
           if (flipHorizontal || flipVertical) {
             sprite = sprite.clone();
