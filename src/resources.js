@@ -1,6 +1,5 @@
 import * as ex from "excalibur";
 import { AutoMap } from "./automap";
-import { LdtkDefFile } from "./ldtkimportjs/ldtkDefFile";
 
 import idleMan0 from "./assets/L/obj_Idle000.png";
 import idleMan1 from "./assets/L/obj_Idle001.png";
@@ -26,7 +25,7 @@ import flyMan0 from "./assets/L/obj_Flying000.png";
 import flyMan1 from "./assets/L/obj_Flying001.png";
 import coin from "./assets/coins.png";
 import caverna from "./assets/maps/Cavernas_by_Adam_Saltsman.png";
-import scifitm from "./assets/maps/scifi_platformTiles_16x16.png";
+import scifitm from "./assets/maps/scifi_platformTiles_32x32.png";
 import tilemap from "./assets/maps/Solaria Demo Update 01.png";
 import dsml1_level from "./assets/maps/dsml1/Cave.ldtkl?url";
 import dsml1_map from "./assets/maps/dsml1.ldtk?url";
@@ -38,7 +37,7 @@ export const dsml1 = new AutoMap(vsl0_map, {
   pathMap: [
     { path: "vsm0/Level_0.ldtk", output: vsl0_level },
     { path: "Cavernas_by_Adam_Saltsman.png", output: caverna },
-    { path: "scifi_platformTiles_16x16.png", output: scifitm },
+    { path: "scifi_platformTiles_32x32.png", output: scifitm },
   ],
 });
 

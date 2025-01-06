@@ -12,14 +12,18 @@ export class Player extends Actor {
       width: 36,
       height: 72,
       anchor: vec(0.5, 0.95),
-      scale: vec(0.2, 0.2),
+      scale: vec(0.4, 0.4),
       collisionType: ex.CollisionType.Active,
     });
     Motion.addListener("accel", (e) => this.handleAccel(e));
   }
   update(engine, delta) {
     if (engine.input.keyboard.wasPressed(ex.Keys.Enter)) {
-      window.dsml1.retile()
+      window.dsml1.retile().then((map)=>{
+        let firstRoom = map.getRooms()[0];
+        let [px, py] = firstRoom.getCenter()
+        this.pos = vec(px * 32 + 16, firstRoom.getBottom() * 32 + 24)
+      });
     }
     
     // *** Control

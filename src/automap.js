@@ -1,5 +1,5 @@
 import { LdtkResource } from "@excaliburjs/plugin-ldtk";
-import { Map } from "rot-js";
+import { Map, RNG } from "rot-js";
 import vsl0_map from "./assets/maps/vsm0.ldtk?url";
 //import vsl0_level from "./assets/maps/vsm0/Level_0.ldtkl?url";
 import { generateAutoLayerTiles } from "./autolayer";
@@ -23,20 +23,22 @@ export class AutoMap extends LdtkResource {
     window.tileset = tileset
     const w = tilemap.columns;
     const h = tilemap.rows;
-    const map = new Map.IceyMaze(h, w, 1);
+    //RNG.setSeed(0)
+    const map = new Map.Uniform(w, h);
+    //map.randomize(0.5)
     const intGridCsv = []
     function pushTile(x, y, solid) {
-      tilemap.tiles[y + x * w].solid = solid;
-      intGridCsv.push(solid ? 1 : 0);
+      tilemap.tiles[x + y * w].solid = solid;
+      intGridCsv[x + y * w] = solid ? 1 : 0;
     }
     map.create(pushTile);
 
     const ldtkLayer = this.getIntGridLayers()[0].ldtkLayer;
 
-    //const origIntGridCsv = ldtkLayer.intGridCsv;
+    //const origIntGridCsv = ldtkLayer.intGridCsv;  // Mapa original
+    this.openSides(map, intGridCsv)
 
     const autoLayerTiles = await calcAutoLayer(intGridCsv, tilemap.columns, tilemap.rows, tilemap.tileWidth, tileset.spritesheet);
-    console.log(autoLayerTiles)
     
     // Clear previous tiles
     tilemap.tiles.forEach((tile) => {
@@ -85,6 +87,13 @@ export class AutoMap extends LdtkResource {
         }
       }
     }
+    return map
   }
-
+  openSides(map, intGridCsv) {
+    const rooms = map.getRooms()
+    rooms.sort((r1, r2)=> r1.getTop() < r2.getTop())
+    const left = rooms[0]
+    const right = rooms[rooms.length - 1]
+    console.log(left,right)
+  }
 }
