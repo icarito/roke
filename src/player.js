@@ -5,6 +5,7 @@ import { idleMan, walkMan, runMan, flyMan } from "./resources";
 import { isSafari } from "./permission";
 
 export class Player extends Actor {
+  world = 0
   constructor(x, y) {
     super({
       name: "Roke",
@@ -18,11 +19,27 @@ export class Player extends Actor {
     Motion.addListener("accel", (e) => this.handleAccel(e));
   }
   update(engine, delta) {
-    if (engine.input.keyboard.wasPressed(ex.Keys.Enter)) {
-      window.dsml1.retile().then((map)=>{
+    const tilemap = window.dsml1.getIntGridLayers()[0].tilemap;
+    if (this.pos.x >= tilemap.width) {
+      engine.stop()
+      this.world++;
+      window.dsml1.retile(this.world).then((map)=>{
         let firstRoom = map.getRooms()[0];
-        let [px, py] = firstRoom.getCenter()
-        this.pos = vec(px * 32 + 16, firstRoom.getBottom() * 32 + 24)
+        let tilepos = vec(this.pos.x % 32 + 16, this.pos.y % 32)
+        this.pos = vec(0, firstRoom.getBottom() * 32).add(tilepos)
+        engine.currentScene.camera.pos = this.pos 
+        engine.start()
+      });
+    }
+    if (this.pos.x <= 0) {
+      engine.stop()
+      this.world--;
+      window.dsml1.retile(this.world).then((map)=>{
+        let lastRoom = map.getRooms()[map.getRooms().length - 1];
+        let tilepos = vec(-(this.pos.x % 32 + 16), this.pos.y % 32)
+        this.pos = vec(map._width * 32, lastRoom.getBottom() * 32).add(tilepos)
+        engine.currentScene.camera.pos = this.pos 
+        engine.start()
       });
     }
     

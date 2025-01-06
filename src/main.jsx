@@ -38,9 +38,9 @@ game.start(loader).then(() => {
   // }, 500)
   window.player = player
   game.currentScene.camera.strategy.elasticToActor(player, 0.3, 0.8);
-  //let boundingBox = new ex.BoundingBox(0, 0, dsml1.data.levels[0].pxHei, dsml1.data.levels[0].pxWid);
-  //game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
-  //game.currentScene.camera.zoomOverTime(2, 2000);
+  let boundingBox = new ex.BoundingBox(0, 0, dsml1.data.levels[0].pxWid, dsml1.data.levels[0].pxHei);
+  game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
+  game.currentScene.camera.zoomOverTime(2, 2000);
 });
 
 

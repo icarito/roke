@@ -17,15 +17,14 @@ export class AutoMap extends LdtkResource {
   constructor(resource, options) {
     super(resource, options);
   }
-  async retile() {
+  async retile(seed = 0) {
     const tilemap = this.getIntGridLayers()[0].tilemap;
     const tileset = this.getIntGridLayers()[0].tileset;
     window.tileset = tileset
     const w = tilemap.columns;
     const h = tilemap.rows;
-    //RNG.setSeed(0)
+    RNG.setSeed(seed)
     const map = new Map.Uniform(w, h);
-    //map.randomize(0.5)
     const intGridCsv = []
     function pushTile(x, y, solid) {
       tilemap.tiles[x + y * w].solid = solid;
@@ -36,7 +35,7 @@ export class AutoMap extends LdtkResource {
     const ldtkLayer = this.getIntGridLayers()[0].ldtkLayer;
 
     //const origIntGridCsv = ldtkLayer.intGridCsv;  // Mapa original
-    this.openSides(map, intGridCsv)
+    this.openSides(map, pushTile)
 
     const autoLayerTiles = await calcAutoLayer(intGridCsv, tilemap.columns, tilemap.rows, tilemap.tileWidth, tileset.spritesheet);
     
@@ -89,11 +88,20 @@ export class AutoMap extends LdtkResource {
     }
     return map
   }
-  openSides(map, intGridCsv) {
+  openSides(map, pushTile) {
+    
     const rooms = map.getRooms()
-    rooms.sort((r1, r2)=> r1.getTop() < r2.getTop())
+    rooms.sort((r1, r2)=> r1.getLeft() < r2.getLeft()? -1:1)
     const left = rooms[0]
     const right = rooms[rooms.length - 1]
-    console.log(left,right)
+
+    for(let x=left.getLeft(); x >= 0; x--) {
+      pushTile(x, left.getBottom(), 0)
+    }
+    
+    for(let x=right.getRight(); x < map._width; x++) {
+      pushTile(x, right.getBottom(), 0)
+    }
+
   }
 }
