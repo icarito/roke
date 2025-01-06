@@ -10,7 +10,7 @@ import { addPermission } from "./permission";
 
 const game = new ex.Engine({
   resolution: { width: 800, height: 480 },
-  displayMode: ex.DisplayMode.FitContainer,
+  displayMode: ex.DisplayMode.FitContainerAndFill,
   canvasElementId: "game",
   backgroundColor: ex.Color.Black,
   pixelArt: true,
@@ -38,6 +38,8 @@ game.start(loader).then(() => {
   // }, 500)
   window.player = player
   game.currentScene.camera.strategy.elasticToActor(player, 0.3, 0.8);
+  game.currentScene.camera.pos = player.pos
+  game.currentScene.camera.zoom = 3
   let boundingBox = new ex.BoundingBox(0, 0, dsml1.data.levels[0].pxWid, dsml1.data.levels[0].pxHei);
   game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
   game.currentScene.camera.zoomOverTime(2, 2000);

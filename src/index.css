@@ -6,11 +6,18 @@
 body,
 html {
   height: 100%;
+  background-color: darkslategray;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
 }
 
 #game {
-  width: 100%;
-  height: 100%;
+  max-height: 50%;
 }
 
 @media (prefers-color-scheme: light) {
