@@ -1,7 +1,7 @@
 import * as ex from "excalibur";
 import { Player } from "./player";
-import { Capsule } from "./capsule";
-import { Coin } from "./money";
+// import { Capsule } from "./capsule";
+// import { Coin } from "./money";
 import "./index.css";
 import { resources, dsml1 } from "./resources";
 import { addPermission } from "./permission";
@@ -20,7 +20,7 @@ const game = new ex.Engine({
 });
 const loader = new ex.Loader([dsml1, ...resources]);
 
-document.body.addEventListener("click", function handler(event) {
+document.body.addEventListener("click", function handler() {
   this.removeEventListener("click", handler);
   addPermission();
 });

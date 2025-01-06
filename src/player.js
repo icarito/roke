@@ -1,4 +1,4 @@
-import { Actor, Color, vec, clamp } from "excalibur";
+import { Actor, vec } from "excalibur";
 import * as ex from "excalibur";
 import { Motion } from "@capacitor/motion";
 import { idleMan, walkMan, runMan, flyMan } from "./resources";
@@ -18,7 +18,7 @@ export class Player extends Actor {
     });
     Motion.addListener("accel", (e) => this.handleAccel(e));
   }
-  update(engine, delta) {
+  update(engine) {
     const tilemap = window.dsml1.getIntGridLayers()[0].tilemap;
     if (this.pos.x >= tilemap.width) {
       engine.stop()

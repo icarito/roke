@@ -26,9 +26,6 @@ import flyMan1 from "./assets/L/obj_Flying001.png";
 import coin from "./assets/coins.png";
 import caverna from "./assets/maps/Cavernas_by_Adam_Saltsman.png";
 import scifitm from "./assets/maps/scifi_platformTiles_32x32.png";
-import tilemap from "./assets/maps/Solaria Demo Update 01.png";
-import dsml1_level from "./assets/maps/dsml1/Cave.ldtkl?url";
-import dsml1_map from "./assets/maps/dsml1.ldtk?url";
 import vsl0_level from "./assets/maps/vsm0/Level_0.ldtkl?url";
 import vsl0_map from "./assets/maps/vsm0.ldtk?url";
 import cityBackFull from "./assets/back/city/10.png";
@@ -65,7 +62,6 @@ export const resources = [
   flyMan0,
   flyMan1,
   caverna,
-  tilemap,
   cityBackFull,
   scifitm,
   coin,
