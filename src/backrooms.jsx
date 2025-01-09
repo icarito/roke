@@ -10,27 +10,37 @@ export function initGroq(apiKey) {
     dangerouslyAllowBrowser: true,
   });
 }
+console.log(window.location.hash)
 if (localStorage.getItem("groqApiKey")) {
   initGroq(localStorage.getItem("groqApiKey"));
+} else if (
+  window.location.hash.startsWith("#gsk_") &&
+  window.location.hash.length == 57
+) {
+  initGroq(window.location.hash.slice(1));
+  window.location.hash = "";
 }
 const messages = [];
 
 function groqBanner() {
-  window.term.writeObject({
-    'msg': `No es posible activar las funciones generativas.
+  window.term.writeObject(
+    {
+      msg: `No es posible activar las funciones generativas.
 Para jugar R.O.K.E. con todas sus características necesitas una API KEY.
 Por favor, obtenga una API KEY.`,
-    'dónde?': "Puedes pedirle una a Sebastian (autor de R.O.K.E.) o crear la tuya propia en Groq.com.",
-    'listo': "Bien, ahora escribe abajo la API KEY sin nada más."
-  }, 'msg');
+      "dónde?":
+        "Puedes pedirle una a Sebastian (autor de R.O.K.E.) o crear la tuya propia en Groq.com.",
+      listo: "Bien, ahora escribe abajo la API KEY sin nada más.",
+    },
+    "msg"
+  );
 }
 
 export async function converse(text, player) {
-  if (!groq)
-    {
-      groqBanner()
-      return
-    }
+  if (!groq) {
+    groqBanner();
+    return;
+  }
   window.term.loading(true);
   let roomChat;
   try {
@@ -79,11 +89,10 @@ export async function converse(text, player) {
 }
 
 export async function getRoomDescription(room, player) {
-  if (!groq)
-    {
-      groqBanner()
-      return
-    }
+  if (!groq) {
+    groqBanner();
+    return;
+  }
   window.term.loading(true);
   let roomChat;
   try {
