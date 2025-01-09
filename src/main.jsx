@@ -41,15 +41,14 @@ loader.events.on("loadresourcestart", () => {
   loader.logoPosition = ex.vec(game.screen.width / 2 - 256, 0);
   loader.loadingBarPosition = ex.vec(game.screen.width / 2 - 250, game.screen.height - 40);
 })
+loader.events.on("useraction", () => {
+  addPermission();
+})
 loader.loadingBarHeight = 10;
 loader.loadingBarColor = ex.Color.Yellow;
 loader.suppressPlayButton = true;
 window.loader = loader
 
-document.body.addEventListener("click", function handler() {
-  this.removeEventListener("click", handler);
-  addPermission();
-});
 document.getElementById("game").onclick = (ev) => {
   ev.target.focus();
 };
@@ -79,6 +78,9 @@ game.start(loader).then(() => {
   game.currentScene.camera.zoomOverTime(2, 2000);
   game.canvas.focus()
 });
+
+window.onfocus = ()=>game.start()
+window.onblur = ()=>game.stop()
 
 window.dsml1 = dsml1;
 window.game = game;
