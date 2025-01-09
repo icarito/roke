@@ -42,6 +42,7 @@ loader.events.on("loadresourcestart", () => {
   loader.loadingBarPosition = ex.vec(game.screen.width / 2 - 250, game.screen.height - 40);
 })
 loader.events.on("useraction", () => {
+  ex.WebAudio.unlock()
   addPermission();
 })
 loader.loadingBarHeight = 10;
@@ -49,6 +50,9 @@ loader.loadingBarColor = ex.Color.Yellow;
 loader.suppressPlayButton = true;
 window.loader = loader
 
+document.body.addEventListener("click", function handler() {
+  this.removeEventListener("click", handler);
+});
 document.getElementById("game").onclick = (ev) => {
   ev.target.focus();
 };
