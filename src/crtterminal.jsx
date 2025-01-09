@@ -8,7 +8,7 @@ import {
 } from "crt-terminal";
 import { initGroq, converse } from "./backrooms";
 
-const bannerText = `\nIniciando sistema...\n\n`;
+const bannerText = `\nIniciando R.O.K.E.\n\n`;
 
 export function CrtTerminal() {
   const eventQueue = useEventQueue();

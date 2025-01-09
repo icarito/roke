@@ -18,7 +18,7 @@ if (localStorage.getItem("groqApiKey")) {
   window.location.hash.length == 57
 ) {
   initGroq(window.location.hash.slice(1));
-  window.location.hash = "";
+  // window.location.hash = "";
 }
 const messages = [];
 

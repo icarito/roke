@@ -22,7 +22,7 @@ render(
 );
 
 const game = new ex.Engine({
-  width: 800,
+  width: 640,
   height: 480,
   displayMode: ex.DisplayMode.Fixed,
   canvasElementId: "game_canvas",
