@@ -1,0 +1,529 @@
+[
+{
+    "level": "Level 0",
+    "name": "The Lobby",
+    "class": "1",
+    "class_details": "Safe, Secure, Minimal Entity Count",
+    "bases": null,
+    "entrances": [
+        "The Frontrooms",
+        "Level 283"
+    ],
+    "entities":[
+        "Bacteria"
+    ],
+    "exits": [
+        "Level 1",
+        "Level 27",
+        "Level -12",
+        "Level -0",
+        "The Basement"
+    ]
+},
+{
+    "level": "Level 0.1",
+    "name": "Zenith Station",
+    "class": "0",
+    "class_details": "Safe, Secure, Devoid of Entities",
+    "bases": [
+        null
+    ],
+    "entities":[
+        null
+    ],
+    "entrances": [
+        "Level 0"
+    ],
+    "exits": [
+        "Level 0",
+        "Level 1"
+    ]
+},
+{
+    "level": "Level 0.2",
+    "name": "Remodeled Mess",
+    "class": "3",
+    "class_details": "Unsafe, Secure, Low Entity Count",
+    "bases": [
+        null
+    ],
+    "entities":[
+        null
+    ],
+    "entrances": [
+        "Level 0"
+    ],
+    "exits": [
+        "Level 0"
+    ]
+},
+{
+    "level": "Level 0.3",
+    "name": "The Icy Rooms",
+    "class": "1",
+    "class_details": "Safe, Secure, Minimal Entity Count",
+    "bases": [
+        null
+    ],
+    "entities":[
+        null
+    ],
+    "entrances": [
+        "Level 0"
+    ],
+    "exits": [
+        "Level 0"
+    ]
+},
+{
+    "level": "Level 1",
+    "name": "Habitable Zone",
+    "class": 1,
+    "class_details": "Safe, Secure, Minimal Entity Count",
+    "bases": [
+        "M.E.G.",
+        "B.N.T.G.",
+        "Tom's Diner"
+    ],
+    "entities":[
+        "Smilers",
+        "Skin-Stealers",
+        "Hounds",
+        "Dullers",
+        "Facelings"
+    ],
+    "entrances": [
+        "Level 0",
+        "Level 11.1",
+        "Level 92",
+        "Level 94"
+    ],
+    "exits": [
+        "Level 2",
+        "Level 19",
+        "Level Fun"
+    ]
+},
+{
+    "level": "Level 1.1",
+    "name": "Corrupted Corridor",
+    "class": "Variable",
+    "class_varible": [
+        "0",
+        "2",
+        "4",
+        "Deadzone",
+        "N/A"
+    ],
+    "class_details": "Varied Safety, Unsecured, Varied Entity Count",
+    "class_details_variable": [
+        "Safe, Secure, Devoid of Enetities",
+        "Unsafe, Secure, Low Entity Count",
+        "Unsafe, Unsecure, Medium Entity Count",
+        "Environmental Hazards, Strictly Uninhabitable, Potential for Anomalous Entities",
+        "Existence Unconfirmed, Likely Inaccessible, Unfit for Life"
+    ],
+    "bases": [
+        "M.E.G.",
+        "The Tunnel Gang",
+        "Outpost 1",
+        "Outpost 2",
+        "Outpost 3",
+        "Jakob's Hut",
+        "Outpost 4"
+    ],
+    "entities":[
+        "Smilers",
+        "Hounds",
+        "Skin-Stealers"
+    ],
+    "entrances": [
+        "level 1"
+    ],
+    "exits": [
+        "Level 1"
+    ]
+},
+{
+    "level": "Level 1.3",
+    "name": "Malignance",
+    "class": "0",
+    "class_details": "Safe, Secure, Devoid of Entities",
+    "bases": [
+        "The Ward"
+    ],
+    "entities":[
+        null
+    ],
+    "entrances": [
+        null
+    ],
+    "exits": [
+        null
+    ]
+},
+{
+    "level": "Level √2",
+    "name": null,
+    "class": "Sigma",
+    "class_details": "Unreliable Files, Non-Euclidean Space, Unidentified Entities",
+    "bases": [
+        null
+    ],
+    "entities":[
+        "The eternal nature of numbers"
+    ],
+    "entrances": [
+        "Level 81"
+    ],
+    "exits": [
+        "Level 1"
+    ]
+},
+{
+    "level": "Level 2",
+    "name": "Pipe Dreams",
+    "class": "3",
+    "class_details": "Unsafe, Unsecure, Low Entity Count",
+    "bases": [
+        "Followers of Jerry",
+        "M.E.G.",
+        "B.N.T.G."
+    ],
+    "entities": [
+        "Windows",
+        "Smilers",
+        "Deathmoths",
+        "Clumps",
+        "Jerry",
+        "Hounds",
+        "Facelings",
+        "Skin-Stealers",
+        "Wretches",
+        "Nguithr'xurhs",
+        "Deathrats",
+        "Cannibal Cuisines",
+        "Wranglers",
+        "Photoshop",
+        "Growlers",
+        "Swindlebirds"
+    ],
+    "entrances": [
+        "The Frontrooms",
+        "Level 1",
+        "Level 55",
+        "Level 287",
+        "Level 2.2",
+        "Level 8",
+        "Level 11",
+        "Level 43",
+        "Level 84",
+        "Level 127",
+        "Level 141",
+        "Level 158",
+        "Level 173",
+        "Level 309",
+        "Level 480",
+        "Level 522",
+        "Level 997"
+    ],
+    "exits": [
+        "Level 3",
+        "Level 4",
+        "Level 31",
+        "Level 127",
+        "Level 137",
+        "Level 70",
+        "Level 283",
+        "Level 101",
+        "Level 126",
+        "Level 141",
+        "Level 175",
+        "Level 997",
+        "Level 811",
+        "Level 998",
+        "The Hub",
+        "Level 606",
+        "Level 38",
+        "Level 64",
+        "Level 127",
+        "Level 158",
+        "Level 902",
+        "Level 189"
+    ]
+},
+{
+    "level": "Level 2.2",
+    "name": "Constant Buzz",
+    "class": "4",
+    "class_details": "Unsafe, Unsecure, Medium Entity Count",
+    "bases": [
+        ""
+    ],
+    "entities":[
+        "Phantom Bees",
+        "Smilers",
+        "Howlers",
+        "Lighters",
+        "Deathrats"
+    ],
+    "entrances": [
+        "Level 3"
+    ],
+    "exits": [
+        "Level 2",
+        "Level 3",
+        "Level 98"
+    ]
+},
+{
+    "level": " ",
+    "name": "Office Space EL3A",
+    "class": "1",
+    "class_details": "Safe, Secure, Minimal Entity Count",
+    "bases": [
+        "B.N.T.G."
+    ],
+    "entities":[
+        "Smilers",
+        "Hounds",
+        "Skin-Stealers",
+        "Photoshop"
+    ],
+    "entrances": [
+        "Level 2"
+    ],
+    "exits": [
+        "Level 2"
+    ]
+},
+{
+    "level": "Level 3",
+    "name": "Electrical Station",
+    "class": "4",
+    "class_details": "Unsafe, Unsecure, Medium Entity Count",
+    "bases": [
+        "M.E.G.",
+        "B.N.T.G.",
+        "Followers of Jerry",
+        "The Masked Maidens",
+        "U.E.C."
+    ],
+    "entities":[
+        "Hounds",
+        "Facelings",
+        "Wretches",
+        "Deathmoths",
+        "Skin-Stealers",
+        "Dullers",
+        "Smilers",
+        "Clumps",
+        "Bursters",
+        "Crawler Fungus"
+    ],
+    "entrances": [
+        "Level 2",
+        "Level 4",
+        "Level 5",
+        "Level 10",
+        "Level 11",
+        "Level 13",
+        "The Metro"
+    ],
+    "exits": [
+        "Level 4",
+        "Level 5",
+        "Level 31",
+        "Level 69"
+    ]
+},
+{
+    "level": "Level 4",
+    "name": "Abandoned Office",
+    "class": "1",
+    "class_details": "Safe, Secure, Minimal Entity Count",
+    "bases": [
+        "M.E.G.",
+        "Amor Incrementum",
+        "T.B.D"
+    ],
+    "entities":[
+        "Hounds",
+        "Dullers"
+    ],
+    "entrances": [
+        "Level 3",
+        "The Hub",
+        "Level 2",
+        "Level 283"
+    ],
+    "exits": [
+        "Level 5",
+        "Level 6",
+        "Level 3",
+        "Level 71"
+    ]
+},
+{
+    "level": "Level 5",
+    "name": "Terror Hotel",
+    "class": "2",
+    "class_details": "Unsafe, Secure, Low Entity Count",
+    "bases": [
+        "M.E.G.",
+        "Homely Hotel",
+        "The Originals",
+        "The Lost Hall Society"
+    ],
+    "entities":[
+        "Deathmoths",
+        "Hounds",
+        "Woodlins",
+        "Skin-Stealers",
+        "Watchers",
+        "Nguithr'xurhs",
+        "Growlers",
+        "Deathrats",
+        "Wranglers",
+        "Samantha",
+        "Ants"
+    ],
+    "entrances": [
+        "Level 4",
+        "Level 3",
+        "Level 19",
+        "Level 126",
+        "Level 54",
+        "Level 10",
+        "Level 82",
+        "Level 92",
+        "Level 4.2"
+    ],
+    "exits": [
+        "Level 6",
+        "Level 3",
+        "Level 4",
+        "Level 9",
+        "Level 63",
+        "Level 98",
+        "Level 427",
+        "Level 40",
+        "Level 78",
+        "Level 84",
+        "Level 171"
+    ]
+},
+{
+    "level": "Level 6",
+    "name": "Lights Out",
+    "class": "Pending",
+    "class_details": "Safety Undetermined, Unsecured, Presence of Enetities Undetermined",
+    "bases": [
+        "The World's Quietest Room",
+        "Mimicry"
+    ],
+    "entities":[
+        null
+    ],
+    "entrances": [
+        "Level 5",
+        "Level 4"
+    ],
+    "exits": [
+        "Level 7",
+        "Level 129",
+        "Level 6.1"
+    ]
+},
+{
+    "level": "Level 7",
+    "name": "Talassophobia",
+    "class": "4",
+    "class_details": "Unsafe, Unsecure, Medium Entity Count",
+    "bases": [
+        "Fort Surrender"
+    ],
+    "entities":[
+        "Tiny",
+        "The Thing On Level 7"
+    ],
+    "entrances": [
+        "Level 6",
+        "Level 8"
+    ],
+    "exits": [
+        "Level 8",
+        "Level 83",
+        "Level 9",
+        "Level 880"
+    ]
+},
+{
+    "level": "Level 8",
+    "name": "Cave System",
+    "class": "5",
+    "class_details": "Unsafe, Unsecure, Entity Infestation",
+    "bases": [
+        "M.E.G.",
+        "The Town of Kavragost"
+    ],
+    "entities":[
+        "Smilers",
+        "Skin-Stealers",
+        "Wretches",
+        "Camo Crawlers",
+        "Transporters",
+        "Deathmoths",
+        "Facelings",
+        "Hens",
+        "Hounds",
+        "Deathrats",
+        "Paralies",
+        "Clumps",
+        "Reviooks",
+        "Wranglers",
+        "Crawlers",
+        "Wranglers",
+        "Windows",
+        "Stalkers"
+    ],
+    "entrances": [
+        "Level 7",
+        "Level 103",
+        "Level 64",
+        "Level 135",
+        "Level 52",
+        "Level 283"
+    ],
+    "exits": [
+        "Level 9",
+        "Level 75",
+        "Level 2",
+        "Level 7",
+        "Level 91",
+        "Level 93",
+        "Level 205",
+        "Level 104",
+        "Level 69"
+    ]
+},
+{
+    "level": "",
+    "name": "",
+    "class": "",
+    "class_details": "",
+    "bases": [
+        ""
+    ],
+    "entities":[
+        ""
+    ],
+    "entrances": [
+        ""
+    ],
+    "exits": [
+        ""
+    ]
+}
+
+]

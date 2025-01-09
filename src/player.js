@@ -3,12 +3,42 @@ import * as ex from "excalibur";
 import { Motion } from "@capacitor/motion";
 import { idleMan, walkMan, runMan, flyMan } from "./resources";
 import { isSafari } from "./permission";
+import { getRoom } from "./backrooms";
+import { getOrSet } from "./util";
 
 export class Player extends Actor {
-  world = 0
+  status = {
+    firstGame: getOrSet("firstGame", Date.now()),
+    location: { level: getOrSet("level", "Level 0"), room: parseInt(getOrSet("room", 0)) }
+  };
+  world = null;
+  gotoRoom(roomNumber) {
+    const tilemap = window.dsml1.getIntGridLayers()[0].tilemap;
+
+    this.status.location = { level: this.world.level, 
+                              room: roomNumber };
+    this.status.enteredRoom = Date.now();
+    window.game.stop();
+    this.world = getRoom(this);
+    let tilepos = vec((this.pos.x % 32) + 16, this.pos.y % 32);
+    window.dsml1.retile(this.world.checksum).then((map) => {
+      let firstRoom = map.getRooms()[0];
+      let lastRoom = map.getRooms()[map.getRooms().length - 1];
+ 
+      if (this.pos.x < 0){
+        this.pos = vec(map._width * 32  - 32, lastRoom.getBottom() * 32).add(tilepos)
+      }
+      else if (this.pos.x > tilemap.width) {
+        this.pos = vec(0, firstRoom.getBottom() * 32).add(tilepos);
+      }
+
+      window.game.currentScene.camera.pos = this.pos;
+      window.game.start();
+    });
+  }
   constructor(x, y) {
     super({
-      name: "Roke",
+      name: getOrSet("name", "Roke"),
       pos: vec(x, y),
       width: 36,
       height: 72,
@@ -17,32 +47,17 @@ export class Player extends Actor {
       collisionType: ex.CollisionType.Active,
     });
     Motion.addListener("accel", (e) => this.handleAccel(e));
+    this.world = getRoom(this);
   }
   update(engine) {
     const tilemap = window.dsml1.getIntGridLayers()[0].tilemap;
     if (this.pos.x >= tilemap.width) {
-      engine.stop()
-      this.world++;
-      window.dsml1.retile(this.world).then((map)=>{
-        let firstRoom = map.getRooms()[0];
-        let tilepos = vec(this.pos.x % 32 + 16, this.pos.y % 32)
-        this.pos = vec(0, firstRoom.getBottom() * 32).add(tilepos)
-        engine.currentScene.camera.pos = this.pos 
-        engine.start()
-      });
+      this.gotoRoom(this.status.location.room + 1)
     }
     if (this.pos.x <= 0) {
-      engine.stop()
-      this.world--;
-      window.dsml1.retile(this.world).then((map)=>{
-        let lastRoom = map.getRooms()[map.getRooms().length - 1];
-        let tilepos = vec(-(this.pos.x % 32 + 16), this.pos.y % 32)
-        this.pos = vec(map._width * 32, lastRoom.getBottom() * 32).add(tilepos)
-        engine.currentScene.camera.pos = this.pos 
-        engine.start()
-      });
+      this.gotoRoom(this.status.location.room - 1)
     }
-    
+
     // *** Control
 
     if (
@@ -92,14 +107,18 @@ export class Player extends Actor {
         this.vel.addEqual(
           ex.vec(
             event.accelerationIncludingGravity.x,
-            -event.accelerationIncludingGravity.y < 0 ? -event.accelerationIncludingGravity.y : 0
+            -event.accelerationIncludingGravity.y < 0
+              ? -event.accelerationIncludingGravity.y
+              : 0
           )
         );
       } else {
         this.vel.addEqual(
           ex.vec(
             -event.accelerationIncludingGravity.x,
-            event.accelerationIncludingGravity.y < 0 ? event.accelerationIncludingGravity.y : 0
+            event.accelerationIncludingGravity.y < 0
+              ? event.accelerationIncludingGravity.y
+              : 0
           )
         );
       }

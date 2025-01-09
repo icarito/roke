@@ -18,7 +18,6 @@ export class AutoMap extends LdtkResource {
     super(resource, options);
   }
   async retile(seed = 0) {
-    window.term.write("\r\nEntering world " + seed)
     const tilemap = this.getIntGridLayers()[0].tilemap;
     const tileset = this.getIntGridLayers()[0].tileset;
     window.tileset = tileset
