@@ -87,6 +87,10 @@ button > * {
     margin: 0px;
     overflow: hidden;
   }
+  #game_canvas {
+    width: 100vw !important;
+    height: unset !important;
+  }
   .crt-terminal {
     margin: auto !important;
     width: 100vw !important;
