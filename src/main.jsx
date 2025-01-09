@@ -7,7 +7,7 @@ import { resources, dsml1 } from "./resources";
 import { addPermission } from "./permission";
 import "@xterm/xterm/css/xterm.css";
 import "./index.css";
-import logo from "./assets/logo640.png";
+import logo from "./assets/logo512.png";
 import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
 
@@ -35,13 +35,16 @@ const game = new ex.Engine({
 const loader = new ex.Loader([dsml1, ...resources]);
 loader.backgroundColor = "#020610";
 loader.logo = logo;
-loader.logoHeight = 480;
-loader.logoWidth = 640;
-loader.logoPosition = ex.vec(game.screen.width / 2 - 320, 0);
-loader.loadingBarPosition = ex.vec(game.screen.width / 2 - 320, 380);
+loader.logoHeight = 322;
+loader.logoWidth = 512;
+loader.events.on("loadresourcestart", () => {
+  loader.logoPosition = ex.vec(game.screen.width / 2 - 256, 0);
+  loader.loadingBarPosition = ex.vec(game.screen.width / 2 - 250, game.screen.height - 40);
+})
 loader.loadingBarHeight = 10;
 loader.loadingBarColor = ex.Color.Yellow;
 loader.suppressPlayButton = true;
+window.loader = loader
 
 document.body.addEventListener("click", function handler() {
   this.removeEventListener("click", handler);
@@ -74,6 +77,7 @@ game.start(loader).then(() => {
   );
   game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
   game.currentScene.camera.zoomOverTime(2, 2000);
+  game.canvas.focus()
 });
 
 window.dsml1 = dsml1;
