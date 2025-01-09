@@ -73,7 +73,8 @@ export function CrtTerminal() {
   }
 
   return (
-    <div style={{ width: "1000px", height: "550px" }}>
+    <div id="terminal"
+    style={{ width: "1000px", height: "550px" }}>
       <Terminal
         queue={eventQueue}
         banner={[textLine({ words: [textWord({ characters: bannerText })] })]}

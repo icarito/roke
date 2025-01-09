@@ -11,7 +11,7 @@ import logo from "./assets/logo640.png";
 import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
 
-//ex.Flags.useCanvasGraphicsContext();
+ex.Flags.useCanvasGraphicsContext();
 
 render(
   <>

@@ -38,7 +38,7 @@ export async function converse(text, player) {
       messages: [
         {
           role: "system",
-          content: `Eres el guinista y dramaturgo de un videojuego llamado R.O.K.E. - 
+          content: `Eres el guionista y dramaturgo de un videojuego llamado R.O.K.E. - 
           que consiste en explorar un espacio infinito del lore del Internet 
           llamado "Backrooms". 
           
@@ -91,7 +91,7 @@ export async function getRoomDescription(room, player) {
       messages: [
         {
           role: "system",
-          content: `Eres el guinista y dramaturgo de un videojuego llamado R.O.K.E. - 
+          content: `Eres el guionista y dramaturgo de un videojuego llamado R.O.K.E. - 
           que consiste en explorar un espacio infinito del lore del Internet 
           llamado "Backrooms". En cada cambio de pantalla el front-end del 
           juego te enviará un json describiendo el nivel y opcionalmente el 

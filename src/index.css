@@ -9,7 +9,7 @@ html {
   background-color: #111111;
 }
 
-canvas:focus{
+canvas:focus {
   outline: none;
 }
 
@@ -41,13 +41,13 @@ body {
   margin: 2em 3em;
   position: absolute;
   filter: blur(1px);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   color: white;
   padding: 2em;
 }
 
 .crt-text-line {
-  margin-top: 5px !important
+  margin-top: 5px !important;
 }
 
 .crt-character {
@@ -78,5 +78,17 @@ button > * {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 1024px) {
+  #app {
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+  }
+  .crt-terminal {
+    margin: auto !important;
+    width: 100vw !important;
   }
 }
