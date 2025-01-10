@@ -52,6 +52,7 @@ window.loader = loader
 
 document.body.addEventListener("click", function handler() {
   this.removeEventListener("click", handler);
+  addPermission();
 });
 document.getElementById("game").onclick = (ev) => {
   ev.target.focus();
