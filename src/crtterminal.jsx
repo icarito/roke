@@ -6,7 +6,7 @@ import {
   textWord,
   buttonWord,
 } from "crt-terminal";
-import { initGroq, converse } from "./backrooms";
+import { initGroq, converseDeBounced } from "./backrooms";
 
 const bannerText = `\nIniciando R.O.K.E.\n\n`;
 
@@ -62,7 +62,7 @@ export function CrtTerminal() {
       console.error(e);
 
       try {
-        result = await converse(command, window.player);
+        result = await converseDeBounced(command, window.player);
       } catch (e) {
         console.error(e);
       }

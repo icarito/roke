@@ -10,6 +10,7 @@ import logo from "./assets/logo512.png";
 import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
 import { AstralPlane } from "./telepathy";
+import { Portal } from "./portal";
 
 //ex.Flags.useCanvasGraphicsContext();
 
@@ -63,6 +64,7 @@ game.start(loader).then(() => {
   game.currentScene.physics.config.gravity = ex.vec(0, 200);
   let player = new Player(492, 50);
   dsml1.addToScene(game.currentScene);
+  //game.add(new Portal(492, 230))
   game.add(player);
 
   // setInterval(() => {

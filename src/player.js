@@ -5,6 +5,8 @@ import { idleMan, walkMan, runMan, flyMan } from "./resources";
 import { isSafari } from "./permission";
 import { getRoom } from "./backrooms";
 import { getOrSet } from "./util";
+import { addPortal, clearPortals } from "./room";
+import { RNG } from "rot-js"
 
 export class Player extends Actor {
   status = {
@@ -32,6 +34,11 @@ export class Player extends Actor {
         this.pos = vec(0, firstRoom.getBottom() * 32).add(tilepos);
       }
 
+      clearPortals()
+
+      const [x, y] = RNG.getItem(map.getRooms()).getCenter()
+      addPortal(x * 32, y * 32)
+
       window.game.currentScene.camera.pos = this.pos;
       window.game.start();
     });
@@ -44,6 +51,7 @@ export class Player extends Actor {
       height: 72,
       anchor: vec(0.5, 0.95),
       scale: vec(0.4, 0.4),
+      z: 1,
       collisionType: ex.CollisionType.Active,
     });
     Motion.addListener("accel", (e) => this.handleAccel(e));

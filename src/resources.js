@@ -24,6 +24,7 @@ import runMan7 from "./assets/L/obj_Run007.png";
 import flyMan0 from "./assets/L/obj_Flying000.png";
 import flyMan1 from "./assets/L/obj_Flying001.png";
 import coin from "./assets/coins.png";
+import portals from "./assets/portalsSpriteSheet.png"
 import caverna from "./assets/maps/Cavernas_by_Adam_Saltsman.png";
 import scifitm from "./assets/maps/scifi_platformTiles_32x32.png";
 import vsl0_level from "./assets/maps/vsm0/Level_0.ldtkl?url";
@@ -65,6 +66,7 @@ export const resources = [
   cityBackFull,
   scifitm,
   coin,
+  portals
 ].map((resource) => new ex.ImageSource(resource));
 
 function resourceByPath(path) {
@@ -126,6 +128,22 @@ const coinSheet = ex.SpriteSheet.fromImageSource({
     spriteHeight: 16,
   },
 });
+const portalSheet = ex.SpriteSheet.fromImageSource({
+  image: resourceByPath(portals),
+  grid: {
+    rows: 4,
+    columns: 4,
+    spriteWidth: 32,
+    spriteHeight: 48,
+  },
+});
+
 export const coinAnim = ex.Animation.fromSpriteSheet(coinSheet, ex.range(0, 7), 200);
+export const portalAnims = [
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(0, 3), 200),
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(4, 7), 200),
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(8, 11), 200),
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(12, 15), 200)
+]
 
 export const cityBack = resourceByPath(cityBackFull).toSprite();

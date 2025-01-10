@@ -1,5 +1,6 @@
 import levels from "./assets/backrooms/levels.json";
 import { Groq } from "groq-sdk";
+import { debounce } from "lodash";
 
 const model = "llama-3.3-70b-versatile";
 
@@ -35,6 +36,9 @@ Por favor, obtenga una API KEY.`,
     "msg"
   );
 }
+
+export const converseDeBounced = debounce(converse, 2000);
+
 
 export async function converse(text, player) {
   if (!groq) {
@@ -87,6 +91,8 @@ export async function converse(text, player) {
   // console.log(response)
   return response;
 }
+
+export const getRoomDescriptionDeBounced = debounce(getRoomDescription, 5000);
 
 export async function getRoomDescription(room, player) {
   if (!groq) {
@@ -167,7 +173,7 @@ export function getRoom(player) {
     (level) => level.level == player.status.location.level
   );
   const room = player.status.location.room;
-  getRoomDescription(level, player);
+  getRoomDescriptionDeBounced(level, player);
   window.visual.flash(
     <>
       <h2>&quot;{level.name}&quot;</h2>
