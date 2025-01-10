@@ -5,18 +5,19 @@ import { Player } from "./player";
 // import { Coin } from "./money";
 import { resources, dsml1 } from "./resources";
 import { addPermission } from "./permission";
-import "@xterm/xterm/css/xterm.css";
 import "./index.css";
 import logo from "./assets/logo512.png";
 import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
+import { AstralPlane } from "./telepathy";
 
-ex.Flags.useCanvasGraphicsContext();
+//ex.Flags.useCanvasGraphicsContext();
 
 render(
   <>
     <CrtVisual />
     <CrtTerminal />
+    <AstralPlane />
   </>,
   document.getElementById("app")
 );
