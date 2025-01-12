@@ -36,6 +36,8 @@ control: teclas de flecha y WASD (experimentalmente el acelerómetro del teléfo
 <details>
 <summary>⚠️ Roke tiene una conciencia, aunque limitada.</summary>
 El `Sistema Operativo` de Roke (el avatar) es un prompt con el cual podemos interactural. La misión del prompt de Roke es, finalmente, adquirir conciencia, _de modo que: ten cuidado con lo que le enseñas.
+
+Esta conciencia funciona con unos [prompts](./src/backrooms.jsx#L55).
 </details>
 
 
