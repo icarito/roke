@@ -1,4 +1,4 @@
-![Logo](./src/assets/logo640.png)
+![Logo](./public/logo-transparent.png)
 
 # _Un proyecto de exploración retroespacial evolutivo_
 
