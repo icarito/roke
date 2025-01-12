@@ -18,16 +18,17 @@ Mediante una aproximación lúdico-creativa, creemos que podemos evolucionar una
 
 ## R.O.K.E: Robot de Operación Kinestética Espacial
 
-<center><kbd>⬆</kbd><br>
+<p align="center">
+<kbd>⬆</kbd><br>
 <kbd>⬅</kbd>
 <kbd>⬇</kbd>
 <kbd>➡</kbd>
 
-``` 
-control: teclas de flecha y WASD
-(experimentalmente el acelerómetro del teléfono móvil)
-```
-</center>
+
+_control: teclas de flecha y WASD
+(experimentalmente el acelerómetro del teléfono móvil)_
+
+</p>
 
 `Roke` es nuestro avatar robótico. Roke es _indestructible_ porque no tiene existencia material (que podamos detectar). Sin embargo, Roke es _vulnerable_ porque su existencia depende de la conciencia colectiva de las personas humanas que lo controlan. Si nadie _juega_ **Roke** - él, ello, eso - deja de existir, aunque se sitúa en el _limbo_ del Internet hasta que otra persona lo _juegue_.
 
