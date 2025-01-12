@@ -24,7 +24,8 @@ Mediante una aproximación lúdico-creativa, creemos que podemos evolucionar una
 <kbd>➡</kbd>
 
 ``` 
-control: teclas de flecha y WASD (experimentalmente el acelerómetro del teléfono móvil)
+control: teclas de flecha y WASD
+(experimentalmente el acelerómetro del teléfono móvil)
 ```
 </center>
 
