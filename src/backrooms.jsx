@@ -3,6 +3,7 @@ import { Groq } from "groq-sdk";
 import { debounce } from "lodash";
 
 const model = "llama-3.3-70b-versatile";
+window.levels = levels
 
 let groq;
 export function initGroq(apiKey) {
@@ -11,7 +12,6 @@ export function initGroq(apiKey) {
     dangerouslyAllowBrowser: true,
   });
 }
-console.log(window.location.hash)
 if (localStorage.getItem("groqApiKey")) {
   initGroq(localStorage.getItem("groqApiKey"));
 } else if (
@@ -172,6 +172,8 @@ export function getRoom(player) {
   const level = levels.find(
     (level) => level.level == player.status.location.level
   );
+  console.log(player.status.location)
+  console.log(level)
   const room = player.status.location.room;
   getRoomDescriptionDeBounced(level, player);
   window.visual.flash(

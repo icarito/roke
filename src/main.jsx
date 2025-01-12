@@ -10,7 +10,6 @@ import logo from "./assets/logo512.png";
 import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
 import { AstralPlane } from "./telepathy";
-import { Portal } from "./portal";
 
 //ex.Flags.useCanvasGraphicsContext();
 

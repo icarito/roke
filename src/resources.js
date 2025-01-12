@@ -140,10 +140,10 @@ const portalSheet = ex.SpriteSheet.fromImageSource({
 
 export const coinAnim = ex.Animation.fromSpriteSheet(coinSheet, ex.range(0, 7), 200);
 export const portalAnims = [
-  ex.Animation.fromSpriteSheet(portalSheet, ex.range(0, 3), 200),
-  ex.Animation.fromSpriteSheet(portalSheet, ex.range(4, 7), 200),
-  ex.Animation.fromSpriteSheet(portalSheet, ex.range(8, 11), 200),
-  ex.Animation.fromSpriteSheet(portalSheet, ex.range(12, 15), 200)
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(0, 3), 100),
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(4, 7), 100),
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(8, 11), 100),
+  ex.Animation.fromSpriteSheet(portalSheet, ex.range(12, 15), 100)
 ]
 
 export const cityBack = resourceByPath(cityBackFull).toSprite();

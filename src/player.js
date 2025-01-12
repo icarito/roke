@@ -17,10 +17,10 @@ export class Player extends Actor {
   gotoRoom(roomNumber) {
     const tilemap = window.dsml1.getIntGridLayers()[0].tilemap;
 
-    this.status.location = { level: this.world.level, 
-                              room: roomNumber };
     this.status.enteredRoom = Date.now();
     window.game.stop();
+    this.status.location = { level: this.world.level, 
+                              room: roomNumber };
     this.world = getRoom(this);
     let tilepos = vec((this.pos.x % 32) + 16, this.pos.y % 32);
     window.dsml1.retile(this.world.checksum).then((map) => {
