@@ -34,7 +34,7 @@ body {
 }
 #game_canvas {
   margin: 2em 3em;
-  opacity: 0.4;
+  opacity: 0.6;
   filter: blur(1px);
 }
 #game_overlay {

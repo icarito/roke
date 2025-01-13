@@ -31,6 +31,11 @@ import vsl0_level from "./assets/maps/vsm0/Level_0.ldtkl?url";
 import vsl0_map from "./assets/maps/vsm0.ldtk?url";
 import cityBackFull from "./assets/back/city/10.png";
 
+// sonidos
+
+import enter from "./assets/sounds/elemental-magic-spell-impact-outgoing-228342.mp3";
+
+
 export const dsml1 = new AutoMap(vsl0_map, {
   pathMap: [
     { path: "vsm0/Level_0.ldtk", output: vsl0_level },
@@ -38,6 +43,11 @@ export const dsml1 = new AutoMap(vsl0_map, {
     { path: "scifi_platformTiles_32x32.png", output: scifitm },
   ],
 });
+
+export const sounds = {
+  enter : new ex.Sound(enter),
+};
+
 
 export const resources = [
   idleMan0,
@@ -66,7 +76,7 @@ export const resources = [
   cityBackFull,
   scifitm,
   coin,
-  portals
+  portals,
 ].map((resource) => new ex.ImageSource(resource));
 
 function resourceByPath(path) {

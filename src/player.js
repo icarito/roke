@@ -1,7 +1,9 @@
 import { Actor, vec } from "excalibur";
 import * as ex from "excalibur";
 import { Motion } from "@capacitor/motion";
-import { idleMan, walkMan, runMan, flyMan } from "./resources";
+import { idleMan, walkMan, runMan, flyMan, 
+  sounds
+ } from "./resources";
 import { isSafari } from "./permission";
 import { getRoom } from "./backrooms";
 import { getOrSet } from "./util";
@@ -36,8 +38,8 @@ export class Player extends Actor {
 
       clearPortals()
 
-      const [x, y] = RNG.getItem(map.getRooms()).getCenter()
-      addPortal(x * 32, y * 32)
+      const [x, y] = RNG.getItem(map.getRooms().slice(1)).getCenter()
+      addPortal(x * 32 + 16, y  * 32)
 
       window.game.currentScene.camera.pos = this.pos;
       window.game.start();
@@ -103,6 +105,9 @@ export class Player extends Actor {
     } else if (this.vel.x < -0.1) {
       this.graphics.flipHorizontal = true;
     }
+  }
+  experiment() {
+    sounds.enter.play(0.5)
   }
   handleAccel(event) {
     if (

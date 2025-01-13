@@ -3,13 +3,14 @@ import { render } from "preact";
 import { Player } from "./player";
 // import { Capsule } from "./capsule";
 // import { Coin } from "./money";
-import { resources, dsml1 } from "./resources";
+import { resources, sounds, dsml1 } from "./resources";
 import { addPermission } from "./permission";
 import "./index.css";
 import logo from "./assets/logo512.png";
 import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
 import { AstralPlane } from "./telepathy";
+import { addPortal } from "./room";
 
 //ex.Flags.useCanvasGraphicsContext();
 
@@ -33,7 +34,8 @@ const game = new ex.Engine({
     solver: ex.SolverStrategy.Realistic,
   },
 });
-const loader = new ex.Loader([dsml1, ...resources]);
+const loader = new ex.Loader([dsml1, ...resources, 
+                  ...Object.values(sounds)]);
 loader.backgroundColor = "#020610";
 loader.logo = logo;
 loader.logoHeight = 322;
@@ -48,7 +50,8 @@ loader.events.on("useraction", () => {
 })
 loader.loadingBarHeight = 10;
 loader.loadingBarColor = ex.Color.Yellow;
-loader.suppressPlayButton = true;
+// loader.suppressPlayButton = true;
+loader.playButtonText = "Enter"
 window.loader = loader
 
 document.body.addEventListener("click", function handler() {
@@ -61,10 +64,13 @@ document.getElementById("game").onclick = (ev) => {
 
 game.start(loader).then(() => {
   game.currentScene.physics.config.gravity = ex.vec(0, 200);
-  let player = new Player(492, 50);
+  let player = new Player(492, 60);
   dsml1.addToScene(game.currentScene);
-  //game.add(new Portal(492, 230))
+  let portal = addPortal(492, 50);
+  portal.rotation = -Math.PI / 2;
+  game.add(portal);
   game.add(player);
+  sounds.enter.play(0.5);
 
   // setInterval(() => {
   //   let coin = new Coin(20, 20);
@@ -74,7 +80,7 @@ game.start(loader).then(() => {
   window.player = player;
   game.currentScene.camera.strategy.elasticToActor(player, 0.3, 0.8);
   game.currentScene.camera.pos = player.pos;
-  game.currentScene.camera.zoom = 3;
+  game.currentScene.camera.zoom = 4;
   let boundingBox = new ex.BoundingBox(
     0,
     0,
@@ -86,8 +92,6 @@ game.start(loader).then(() => {
   game.canvas.focus()
 });
 
-window.onfocus = ()=>game.start()
-window.onblur = ()=>game.stop()
 
 window.dsml1 = dsml1;
 window.game = game;

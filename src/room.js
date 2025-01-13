@@ -9,6 +9,7 @@ export function addPortal(x, y) {
     const portal = new Portal(x, y);
     window.game.add(portal)
     room.portals.push(portal);
+    return portal
 }
 
 export function clearPortals() {

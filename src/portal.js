@@ -11,7 +11,6 @@ export class Portal extends ex.Actor {
       y: y,
       width: 32,
       height: 48,
-      anchor: ex.vec(0.5, 1),
       z: 0,
       collisionType: ex.CollisionType.Passive,
     });

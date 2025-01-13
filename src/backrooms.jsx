@@ -74,7 +74,7 @@ export async function converse(text, player) {
       },
       model: model,
       temperature: 1.4,
-      max_tokens: 3000,
+      max_tokens: 5000,
       top_p: 1,
       stream: false,
       stop: null,
@@ -125,6 +125,7 @@ export async function getRoomDescription(room, player) {
            Recuerda ser breve.
            `,
         },
+        ...messages,
         {
           role: "user",
           content: JSON.stringify({ room, player_status: player.status }),
@@ -135,7 +136,7 @@ export async function getRoomDescription(room, player) {
       },
       model: "llama-3.3-70b-versatile",
       temperature: 1.6,
-      max_tokens: 3000,
+      max_tokens: 5000,
       top_p: 1,
       stream: false,
       stop: null,
@@ -172,8 +173,6 @@ export function getRoom(player) {
   const level = levels.find(
     (level) => level.level == player.status.location.level
   );
-  console.log(player.status.location)
-  console.log(level)
   const room = player.status.location.room;
   getRoomDescriptionDeBounced(level, player);
   window.visual.flash(
