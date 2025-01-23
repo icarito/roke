@@ -4,18 +4,18 @@ export function CrtVisual() {
   const [osd, setOsd] = useState("");
 
   function flash(output) {
-    setOsd(output)
+    setOsd(output);
   }
   window.visual = {
-    flash: flash
-  }
+    flash: flash,
+  };
 
   return (
     <div id="game">
-      <div id="game_overlay">
-        {osd}
+      <div id="game_overlay">{osd}</div>
+      <div id="game_margin">
+        <canvas tabIndex="1" id="game_canvas"></canvas>
       </div>
-      <canvas tabIndex="1" id="game_canvas"></canvas>
     </div>
   );
 }

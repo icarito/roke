@@ -958,11 +958,6 @@ cross-spawn@^7.0.6:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crt-terminal@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/crt-terminal/-/crt-terminal-1.1.0.tgz#01fbde24ac14a5d0710ca6b4c4fad4f0ff427526"
-  integrity sha512-g7RPiJ2ibQj3X4QYb2AVPVZ945uVj2DTOsnGTStYJk5oZKAe7/1Q6SZu1neC/891CmrToa94dH5nZyI9o+Eg0Q==
-
 css-select@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-5.1.0.tgz#b8ebd6554c3637ccc76688804ad3f6a6fdaea8a6"

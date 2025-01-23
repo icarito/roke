@@ -7,7 +7,6 @@ import { resources, sounds, dsml1 } from "./resources";
 import { addPermission } from "./permission";
 import "./index.css";
 import logo from "./assets/logo512.png";
-import { CrtTerminal } from "./crtterminal";
 import { CrtVisual } from "./crtvisual";
 import { AstralPlane } from "./telepathy";
 import { addPortal } from "./room";
@@ -17,21 +16,20 @@ import { addPortal } from "./room";
 render(
   <>
     <CrtVisual />
-    <CrtTerminal />
     <AstralPlane />
   </>,
   document.getElementById("app")
 );
 
 const game = new ex.Engine({
-  width: 640,
+  width: 800,
   height: 480,
-  displayMode: ex.DisplayMode.Fixed,
+  displayMode: ex.DisplayMode.FitContainer,
   canvasElementId: "game_canvas",
   backgroundColor: ex.Color.Black,
   pixelArt: true,
   physics: {
-    solver: ex.SolverStrategy.Realistic,
+    solver: ex.SolverStrategy.Arcade,
   },
 });
 const loader = new ex.Loader([dsml1, ...resources, 
