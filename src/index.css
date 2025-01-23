@@ -26,6 +26,7 @@ body {
   flex-direction: column;
 }
 #game {
+  font-size: 1.5vw;
   background: radial-gradient(50% 50% at 50% 50%, #354228 0, #0f140a 100%);
   border: 1.1428571429rem solid #111010;
   padding: 1.1428571429rem 0.5714285714rem;
@@ -44,7 +45,7 @@ body {
   aspect-ratio: auto 800 / 480;
 }
 #game_overlay {
-  margin: 2em 3em;
+  margin: .5em 1.5em;
   position: absolute;
   filter: blur(1px);
   font-family: "Courier New", Courier, monospace;
