@@ -5,9 +5,9 @@ const room = {
     portals : []
 }
 
-export function addPortal(x, y) {
+export function addPortal(scene, x, y) {
     const portal = new Portal(x, y);
-    window.game.add(portal)
+    scene.add(portal)
     room.portals.push(portal);
     return portal
 }
