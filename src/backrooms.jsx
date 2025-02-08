@@ -24,17 +24,17 @@ if (localStorage.getItem("groqApiKey")) {
 const messages = [];
 
 function groqBanner() {
-  window.term.writeObject(
-    {
-      msg: `No es posible activar las funciones generativas.
-Para jugar R.O.K.E. con todas sus características necesitas una API KEY.
-Por favor, obtenga una API KEY.`,
-      "dónde?":
-        "Puedes pedirle una a Sebastian (autor de R.O.K.E.) o crear la tuya propia en Groq.com.",
-      listo: "Bien, ahora escribe abajo la API KEY sin nada más.",
-    },
-    "msg"
-  );
+//   window.term.writeObject(
+//     {
+//       msg: `No es posible activar las funciones generativas.
+// Para jugar R.O.K.E. con todas sus características necesitas una API KEY.
+// Por favor, obtenga una API KEY.`,
+//       "dónde?":
+//         "Puedes pedirle una a Sebastian (autor de R.O.K.E.) o crear la tuya propia en Groq.com.",
+//       listo: "Bien, ahora escribe abajo la API KEY sin nada más.",
+//     },
+//     "msg"
+//   );
 }
 
 export const converseDeBounced = debounce(converse, 2000);
@@ -45,7 +45,7 @@ export async function converse(text, player) {
     groqBanner();
     return;
   }
-  window.term.loading(true);
+  // window.term.loading(true);
   let roomChat;
   try {
     roomChat = await groq.chat.completions.create({
@@ -82,7 +82,7 @@ export async function converse(text, player) {
   } catch (error) {
     console.error(error);
   } finally {
-    window.term.loading(false);
+    // window.term.loading(false);
   }
 
   const response = JSON.parse(roomChat.choices[0].message.content);
@@ -99,7 +99,6 @@ export async function getRoomDescription(room, player) {
     groqBanner();
     return;
   }
-  window.term.loading(true);
   let roomChat;
   try {
     roomChat = await groq.chat.completions.create({
@@ -144,11 +143,11 @@ export async function getRoomDescription(room, player) {
   } catch (error) {
     console.error(error);
   } finally {
-    window.term.loading(false);
+    // window.term.loading(false);
   }
   const response = JSON.parse(roomChat.choices[0].message.content);
   messages.push(roomChat.choices[0].message);
-  window.term.writeObject(response, "shortDescription");
+  // window.term.writeObject(response, "shortDescription");
   //writeln(response.shortDescription + "\n");
   //writeln(response.longDescription + "\n");
   return roomChat;
